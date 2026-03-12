@@ -1,0 +1,15 @@
+site_name: 我的技术感悟笔记
+theme:
+  name: material
+
+# 这里的 nav 部分决定了你网页左侧的导航栏
+nav:
+  - 首页: index.md
+  - 🌍 GIS 研究:
+      - 概览: GIS/index.md
+      - 空间分析: GIS/spatial_analysis.md
+  - 🐍 Python 进阶:
+      - 概览: python/index.md
+      - OSMnx 实践: python/osmnx_notes.md
+  - 🌐 网页开发: web_dev/index.md
+      - 课堂作业: web_dev/homework_1.md
