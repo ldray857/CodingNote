@@ -1,15 +1,14 @@
-site_name: 我的技术感悟笔记
+site_name: 码上感悟 | My Coding Journey
 theme:
-  name: material
+  name: material  # 使用你最喜欢的 Material 主题
+  language: zh    # 设置界面为中文
+  palette: 
+    primary: indigo # 你可以改成 green, blue, teal 等你喜欢的颜色
 
-# 这里的 nav 部分决定了你网页左侧的导航栏
 nav:
   - 首页: index.md
-  - 🌍 GIS 研究:
-      - 概览: GIS/index.md
-      - 空间分析: GIS/spatial_analysis.md
-  - 🐍 Python 进阶:
-      - 概览: python/index.md
-      - OSMnx 实践: python/osmnx_notes.md
-  - 🌐 网页开发: web_dev/index.md
-      - 课堂作业: web_dev/homework_1.md
+  - 🌍 GIS 空间: GIS/index.md
+  - 🐍 Python 笔记: python/index.md
+  - 💻 C/C++ 编程: c_cpp/index.md
+  - 🌐 前端开发: web_dev/index.md
+  - 🛠️ 推荐工具: tools/index.md
