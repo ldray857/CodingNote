@@ -12,7 +12,6 @@ repo_url: https://github.com/ldray857/CodingNote
 # 3. 主题配置 (核心审计区)
 theme:
   name: material
-  custom_dir: overrides      # 【关键】必须指向根目录下的 overrides 文件夹
   language: zh
   favicon: assets/favicon.png
   logo: assets/favicon.png
