@@ -19,8 +19,8 @@ repo_url: https://github.com/ldray857/CodingNote # 你的代码仓库地址
 theme:
   name: material                     # 使用目前最强的 Material for MkDocs 主题
   language: zh                       # 界面语言设为中文（搜索、按钮等）
-  favicon: assets/favicon.svg        # 浏览器标签页小图标
-  logo: assets/favicon.svg           # 网站左上角图标
+  favicon: assets/favicon.png        # 浏览器标签页小图标
+  logo: assets/favicon.png           # 网站左上角图标
   
   # 配色方案：支持浅色/深色模式手动或自动切换
   palette: 
