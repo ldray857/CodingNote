@@ -94,14 +94,15 @@ markdown_extensions:
 # 6. 自定义额外资源 (Extra Assets)
 # =========================================================
 extra:
-  # 顶部公告栏内容，柳贯一的名言很有格调
-  announcement: “身如柳絮随风扬，无论云泥意贯一。 ——— 柳贯一”
-    
+  # 顶部公告栏内容 (柳贯一名言)
+  # 注意：这里去掉了中文引号，使用了标准的英文引号
+  announcement: "身如柳絮随风扬，无论云泥意贯一。 ——— 柳贯一"
 
+# 引用外部 CSS (侧边线、卡片感、滚动条优化)
 extra_css:
-  - stylesheets/extra.css            # 引用你刚才优化的“悬浮卡片”和滚动条样式
+  - stylesheets/extra.css
 
+# 引用外部 JS (数学公式渲染)
 extra_javascript:
-  # 这里的脚本是为了让 Arithmatex 能够正确渲染 LaTeX 数学公式
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
