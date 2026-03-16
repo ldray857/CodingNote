@@ -42,7 +42,6 @@ theme:
   # 主题特性开关
   features:
     # - navigation.tabs              # (已禁用) 开启后一级分类会显示在顶部蓝色条上
-    - navigation.announcement        # 开启顶部横幅公告功能
     - navigation.sections            # 侧边栏菜单分组显示（加粗显示一级目录）
     - navigation.expand              # 页面加载时自动展开所有侧边栏子项
     - navigation.top                 # 开启右下角“回到顶部”按钮
@@ -96,8 +95,8 @@ markdown_extensions:
 # =========================================================
 extra:
   # 顶部公告栏内容，柳贯一的名言很有格调
-  announcement: >
-    身如柳絮随风扬，无论云泥意贯一。 —— 柳贯一
+  announcement: “身如柳絮随风扬，无论云泥意贯一。 ——— 柳贯一”
+    
 
 extra_css:
   - stylesheets/extra.css            # 引用你刚才优化的“悬浮卡片”和滚动条样式
