@@ -39,8 +39,31 @@ theme:
     - search.highlight       # 搜索高亮
     - content.code.copy      # 代码一键复制
 
-# 4. 导航栏配置 (Nav)
-# 保持你目前的 nav 结构即可，注意缩进对齐
+
+# =========================================================
+# 4. 导航栏配置
+# =========================================================
+nav:
+  - 🏠 首页: index.md
+  - 🛠️ 工具使用与配置:
+      - 工具概览: tools/index.md
+      - IDE 相关配置: tools/as_IDE/index.md
+      - 头部公司与编译器: tools/as_cmp/index.md
+  - 🖥️ 计算机使用感悟:
+      - 经验总结: CS/index.md
+  - ⚡ AI 工程:
+      - 实践心得: AI/index.md
+  - 💻 C & C++ 工程实践:
+      - 核心指南: c_cpp/index.md
+      - 环境联动: tools/as_IDE/VS3/index.md
+  - 🐍 Python 工程实践:
+      - 环境管理: python/index.md
+  - 🌍 GIS 算法与实践:
+      - 空间分析与自动化: GIS/index.md
+  - 🌐 Web 开发工程:
+      - 开发概览: web_dev/index.md
+
+
 
 # 5. Markdown 增强插件
 markdown_extensions:
