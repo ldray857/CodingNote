@@ -99,8 +99,8 @@ extra:
   announcement: "身如柳絮随风扬，无论云泥意贯一。 ——— 柳贯一"
 
 # 引用外部 CSS (侧边线、卡片感、滚动条优化)
-extra_css:
-  - stylesheets/extra.css
+#extra_css:
+#  - stylesheets/extra.css
 
 # 引用外部 JS (数学公式渲染)
 extra_javascript:
