@@ -32,6 +32,7 @@ theme:
         name: 切换至浅色模式
   features:
     # - navigation.tabs           # <-- 必须删掉/注释掉这行，导航才会回到左侧
+    - navigation.announcement  # 1. 开启公告栏功能
     - navigation.sections       # 侧边栏分组，配合左侧导航非常美观
     - navigation.expand         # 默认展开
     - navigation.top            # 回到顶部
