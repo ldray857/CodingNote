@@ -80,16 +80,18 @@ body {
 .md-typeset h1 { margin-bottom: 1.5rem; font-weight: 700; }
 .md-typeset h2 { margin-top: 2rem; border-bottom: none; }
 
-/* 让顶部公告栏文字更有质感 */
-.md-banner {
+/* 让顶部公告栏文字更有质感 - 修正类名为 .md-announce */
+.md-announce {
     background-color: #003399; /* 浙大标准蓝 */
     color: #ffffff;
     font-weight: 500;
-    letter-spacing: 0.02em;
+    font-size: 0.75rem; /* 名言可以小一点，显得精致 */
+    letter-spacing: 0.05em;
 }
 
-/* 如果名言比较长，可以加一个微小的渐变效果 */
-.md-banner__inner {
+/* 内部容器的渐变效果 */
+.md-announce__inner {
+    padding: 0.4rem 0;
     background: linear-gradient(90deg, #003399, #3f51b5, #003399);
     background-size: 200% 100%;
     animation: gradientMove 5s ease infinite;
