@@ -1,38 +1,67 @@
-/* 只有在宽屏（侧边栏显示）时才注入样式 */
+/* =========================================================
+   加强版侧边栏分割线：解决低 visibility 和短的问题
+   针对高分辨率屏幕（如 Legion Y9000P）优化
+========================================================= */
+
+/* 只有在宽屏（显示侧边栏）时才注入样式 */
 @media screen and (min-width: 76.25em) {
   
-  /* 针对侧边栏容器进行精准修饰 */
+  /* 精准控制左右侧边栏容器 */
   .md-sidebar--primary, 
   .md-sidebar--secondary {
-    /* 核心漏洞修复：确保边框和内边距不撑开元素总宽度 */
     box-sizing: border-box; 
     /* 增加平滑过渡，切换深色模式时不突兀 */
     transition: border-color 250ms; 
+    
+    /* === 核心：解决短的问题 === */
+    /* 1. 强制设为视口高度，减去顶部横幅的高度（通常是 6rem 或 calc(4rem + 1px)），请根据实际情况微调此值 */
+    height: calc(100vh - 6rem); 
+    /* 2. 在内容滚动时，保持线在原位 */
+    position: sticky; 
+    top: 6rem;
+    overflow-y: auto; /* 确保侧边栏内部可滚动 */
   }
 
-  /* 左侧栏右边框 */
+  /* 针对中间内容区进行微调，确保布局不崩 */
+  .md-content {
+    /* 核心漏洞修复：确保中间内容区不会被侧边栏的 100vh 挤扁 */
+    min-height: calc(100vh - 6rem);
+    display: flex;
+    flex-direction: column;
+  }
+  .md-content__inner {
+    flex-grow: 1;
+  }
+
+  /* === 左侧栏（导航） === */
   .md-sidebar--primary {
-    border-right: 1px solid rgba(0, 0, 0, 0.07);
-    /* 稍微拉开文字和线的距离，避免视觉粘连 */
-    padding-right: 8px; 
+    /* === 核心：解决不明显的问题 === */
+    /* 1. 增加宽度到 2px，更硬朗 */
+    /* 2. 颜色设为更深的灰色（从 0.07 增加到 0.25），对比度更高 */
+    border-right: 2px solid rgba(0, 0, 0, 0.25);
+    padding-right: 12px; /* 增加内边距，更有呼吸感 */
   }
 
-  /* 右侧栏左边框 */
+  /* === 右侧栏（目录） === */
   .md-sidebar--secondary {
-    border-left: 1px solid rgba(0, 0, 0, 0.07);
-    padding-left: 8px;
+    border-left: 2px solid rgba(0, 0, 0, 0.25);
+    padding-left: 12px;
   }
 }
 
-/* 兼容性补充：解决滚动时线可能被遮挡的问题 */
+/* === 兼容性补充：确保内部布局正常 === */
 .md-sidebar__inner {
   overflow-x: hidden;
+  height: 100%; /* 继承父容器的高度 */
 }
 
-/* 深色模式自动适配：使用 CSS 变量（更优雅，无漏洞） */
+/* =========================================================
+   深色模式自动适配：同步加强对比度
+========================================================= */
 [data-md-color-scheme="slate"] .md-sidebar--primary {
-  border-right-color: rgba(255, 255, 255, 0.1);
+  /* 深色模式下，将白色的不透明度从 0.1 提高到 0.3 */
+  border-right-color: rgba(255, 255, 255, 0.3);
 }
 [data-md-color-scheme="slate"] .md-sidebar--secondary {
-  border-left-color: rgba(255, 255, 255, 0.1);
+  border-left-color: rgba(255, 255, 255, 0.3);
 }
