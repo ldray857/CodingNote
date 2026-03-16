@@ -1,32 +1,25 @@
-# =========================================================
 # 1. 站点基础信息
-# =========================================================
 site_name: GIS & CS | CodingNote
-site_description: 关于 GIS、CS 与 AI 的记录
+site_description: 关于 GIS、CS 与 AI 的一些记录
 site_author: Lucas
 site_url: https://ldray857.github.io/CodingNote/
 edit_uri: edit/main/docs/
 
-# =========================================================
 # 2. 仓库链接
-# =========================================================
 repo_name: ldray857/CodingNote
 repo_url: https://github.com/ldray857/CodingNote
 
-# =========================================================
-# 3. 主题配置 (Material for MkDocs)
-# =========================================================
+# 3. 主题配置 (核心审计区)
 theme:
   name: material
+  custom_dir: overrides      # 【关键】必须指向根目录下的 overrides 文件夹
   language: zh
   favicon: assets/favicon.png
   logo: assets/favicon.png
-  
-  # 配色方案 (浙大蓝风格)
   palette: 
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
+      primary: indigo        
       accent: indigo
       toggle:
         icon: material/weather-sunny
@@ -38,48 +31,23 @@ theme:
       toggle:
         icon: material/weather-night
         name: 切换至浅色模式
-
-  # 主题功能开关
   features:
-    - navigation.sections
-    - navigation.expand
-    - navigation.top
-    - search.suggest
-    - search.highlight
-    - content.code.copy
+    - navigation.sections    # 侧边栏分段显示
+    - navigation.expand      # 默认展开
+    - navigation.top         # 回到顶部按钮
+    - search.suggest         # 搜索建议
+    - search.highlight       # 搜索高亮
+    - content.code.copy      # 代码一键复制
 
-# =========================================================
-# 4. 导航栏配置
-# =========================================================
-nav:
-  - 🏠 首页: index.md
-  - 🛠️ 工具使用与配置:
-      - 工具概览: tools/index.md
-      - IDE 相关配置: tools/as_IDE/index.md
-      - 头部公司与编译器: tools/as_cmp/index.md
-  - 🖥️ 计算机使用感悟:
-      - 经验总结: CS/index.md
-  - ⚡ AI 工程:
-      - 实践心得: AI/index.md
-  - 💻 C & C++ 工程实践:
-      - 核心指南: c_cpp/index.md
-      - 环境联动: tools/as_IDE/VS3/index.md
-  - 🐍 Python 工程实践:
-      - 环境管理: python/index.md
-  - 🌍 GIS 算法与实践:
-      - 空间分析与自动化: GIS/index.md
-  - 🌐 Web 开发工程:
-      - 开发概览: web_dev/index.md
+# 4. 导航栏配置 (Nav)
+# 保持你目前的 nav 结构即可，注意缩进对齐
 
-# =========================================================
-# 5. Markdown 语法增强
-# =========================================================
+# 5. Markdown 增强插件
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.inlinehilite
-  - pymdownx.magiclink
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.tasklist:
@@ -88,14 +56,11 @@ markdown_extensions:
   - toc:
       permalink: true
 
-# =========================================================
-# 6. 自定义额外资源 (核心修复区)
-# =========================================================
-# 注意：extra 必须顶格，且与 site_name 处于同一层级
+# 6. 额外资源引用 (必须顶格写)
 extra:
+  # 虽然我们用了 overrides 硬编码，但保留此项可作为元数据备份
   announcement: "身如柳絮随风扬，无论云泥意贯一。 ——— 柳贯一"
 
-# 注意：这些引用必须在 extra 块之外，同样顶格
 extra_css:
   - stylesheets/extra.css
 
