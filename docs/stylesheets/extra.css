@@ -1,0 +1,38 @@
+/* 只有在宽屏（侧边栏显示）时才注入样式 */
+@media screen and (min-width: 76.25em) {
+  
+  /* 针对侧边栏容器进行精准修饰 */
+  .md-sidebar--primary, 
+  .md-sidebar--secondary {
+    /* 核心漏洞修复：确保边框和内边距不撑开元素总宽度 */
+    box-sizing: border-box; 
+    /* 增加平滑过渡，切换深色模式时不突兀 */
+    transition: border-color 250ms; 
+  }
+
+  /* 左侧栏右边框 */
+  .md-sidebar--primary {
+    border-right: 1px solid rgba(0, 0, 0, 0.07);
+    /* 稍微拉开文字和线的距离，避免视觉粘连 */
+    padding-right: 8px; 
+  }
+
+  /* 右侧栏左边框 */
+  .md-sidebar--secondary {
+    border-left: 1px solid rgba(0, 0, 0, 0.07);
+    padding-left: 8px;
+  }
+}
+
+/* 兼容性补充：解决滚动时线可能被遮挡的问题 */
+.md-sidebar__inner {
+  overflow-x: hidden;
+}
+
+/* 深色模式自动适配：使用 CSS 变量（更优雅，无漏洞） */
+[data-md-color-scheme="slate"] .md-sidebar--primary {
+  border-right-color: rgba(255, 255, 255, 0.1);
+}
+[data-md-color-scheme="slate"] .md-sidebar--secondary {
+  border-left-color: rgba(255, 255, 255, 0.1);
+}
