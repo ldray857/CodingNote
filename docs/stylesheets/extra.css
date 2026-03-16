@@ -1,67 +1,70 @@
 /* =========================================================
-   加强版侧边栏分割线：解决低 visibility 和短的问题
-   针对高分辨率屏幕（如 Legion Y9000P）优化
+   1. 侧边栏垂直分割线优化：增加质感与融合度
 ========================================================= */
-
-/* 只有在宽屏（显示侧边栏）时才注入样式 */
 @media screen and (min-width: 76.25em) {
   
-  /* 精准控制左右侧边栏容器 */
+  /* 左侧导航栏与右侧目录栏 */
   .md-sidebar--primary, 
   .md-sidebar--secondary {
-    box-sizing: border-box; 
-    /* 增加平滑过渡，切换深色模式时不突兀 */
-    transition: border-color 250ms; 
-    
-    /* === 核心：解决短的问题 === */
-    /* 1. 强制设为视口高度，减去顶部横幅的高度（通常是 6rem 或 calc(4rem + 1px)），请根据实际情况微调此值 */
-    height: calc(100vh - 6rem); 
-    /* 2. 在内容滚动时，保持线在原位 */
-    position: sticky; 
-    top: 6rem;
-    overflow-y: auto; /* 确保侧边栏内部可滚动 */
+    box-sizing: border-box;
+    /* 增加平滑过渡 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* 针对中间内容区进行微调，确保布局不崩 */
-  .md-content {
-    /* 核心漏洞修复：确保中间内容区不会被侧边栏的 100vh 挤扁 */
-    min-height: calc(100vh - 6rem);
-    display: flex;
-    flex-direction: column;
-  }
-  .md-content__inner {
-    flex-grow: 1;
-  }
-
-  /* === 左侧栏（导航） === */
+  /* 左侧栏右边框：使用带透明度的 Indigo 色，增加融合感 */
   .md-sidebar--primary {
-    /* === 核心：解决不明显的问题 === */
-    /* 1. 增加宽度到 2px，更硬朗 */
-    /* 2. 颜色设为更深的灰色（从 0.07 增加到 0.25），对比度更高 */
-    border-right: 2px solid rgba(0, 0, 0, 0.25);
-    padding-right: 12px; /* 增加内边距，更有呼吸感 */
+    border-right: 1.5px solid rgba(63, 81, 181, 0.15); /* 淡淡的靛蓝色 */
+    padding-right: 1.2rem;
   }
 
-  /* === 右侧栏（目录） === */
+  /* 右侧栏左边框：同理 */
   .md-sidebar--secondary {
-    border-left: 2px solid rgba(0, 0, 0, 0.25);
-    padding-left: 12px;
+    border-left: 1.5px solid rgba(63, 81, 181, 0.15);
+    padding-left: 1.2rem;
   }
-}
-
-/* === 兼容性补充：确保内部布局正常 === */
-.md-sidebar__inner {
-  overflow-x: hidden;
-  height: 100%; /* 继承父容器的高度 */
 }
 
 /* =========================================================
-   深色模式自动适配：同步加强对比度
+   2. 极简主义滚动条设计：告别粗大的默认滚动条
+   让界面看起来像现代 IDE (如 VS Code)
 ========================================================= */
-[data-md-color-scheme="slate"] .md-sidebar--primary {
-  /* 深色模式下，将白色的不透明度从 0.1 提高到 0.3 */
-  border-right-color: rgba(255, 255, 255, 0.3);
+
+/* 针对 Webkit 浏览器 (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 6px; /* 极细宽度 */
+  height: 6px;
 }
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 滚动条滑块 (Thumb) */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1); /* 浅灰色，几乎不被察觉 */
+  border-radius: 10px;
+}
+
+/* 鼠标悬停在滑块上时变深 */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(63, 81, 181, 0.4); /* 悬停时显示为淡淡的靛蓝 */
+}
+
+/* =========================================================
+   3. 细节微调：增加呼吸感
+========================================================= */
+.md-sidebar__inner {
+  padding-top: 1rem; /* 侧边栏顶部留白 */
+  scrollbar-width: thin; /* Firefox 兼容性 */
+  scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
+}
+
+/* 深色模式适配 */
+[data-md-color-scheme="slate"] ::webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+[data-md-color-scheme="slate"] .md-sidebar--primary,
 [data-md-color-scheme="slate"] .md-sidebar--secondary {
-  border-left-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
 }
