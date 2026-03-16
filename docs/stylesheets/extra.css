@@ -1,70 +1,81 @@
 /* =========================================================
-   1. 顶部导航栏名言居中 (Header Quote)
+   1. 全局布局美化：打造“悬浮卡片”质感
 ========================================================= */
-.header-quote-center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.85rem;
-    font-weight: 500;
-    white-space: nowrap;
-    opacity: 0.9;
-    letter-spacing: 0.05em;
-    pointer-events: none; /* 防止遮挡点击 */
+:root {
+    --md-primary-fg-color: #3F51B5; /* 浙大蓝基准 */
+    --md-footer-bg-color: #f8f9fa;
 }
 
-/* 针对宽屏 Y9000P 的对齐优化：如果屏幕太窄则隐藏名言，防止重叠搜索框 */
-@media screen and (max-width: 60em) {
-    .header-quote-center {
-        display: none;
-    }
-}
-
-/* =========================================================
-   2. 全局布局美化：适配深/浅模式
-========================================================= */
-/* 浅色模式背景 */
+/* 给整个背景一个淡淡的底色，让中间的内容区能“跳”出来 */
 body {
     background-color: #f5f7f9;
 }
 
-/* 核心修复：中间内容卡片 */
-.md-content {
-    /* 使用变量而非死颜色：--md-default-bg-color 会随模式自动变色 */
-    background-color: var(--md-default-bg-color) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border-radius: 10px;
-    margin: 1.5rem 0.8rem;
-    padding: 0 1.2rem;
-}
-
-/* 隐藏侧边栏原生分割线 */
+/* 隐藏不必要的侧边栏边框 */
 .md-sidebar {
     border: none !important;
 }
 
 /* =========================================================
-   3. 深色模式 (Slate Theme) 专项抛光
+   2. 侧边栏“色块化”：用颜色取代线条
 ========================================================= */
-[data-md-color-scheme="slate"] body {
-    background-color: #121417; /* 更深邃的背景，让卡片更浮现 */
-}
+@media screen and (min-width: 76.25em) {
+    /* 左侧导航栏和右侧目录栏背景微调 */
+    .md-sidebar--primary, 
+    .md-sidebar--secondary {
+        background-color: #f8f9fa; /* 比背景稍浅，比内容区稍深 */
+        padding: 1rem 0;
+    }
 
-[data-md-color-scheme="slate"] .md-content {
-    /* 深色模式下的阴影要更重、更深一些 */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    /* 给中间的内容主体加一个“纸张感”的阴影卡片效果 */
+    .md-content {
+        background-color: #ffffff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* 极轻的阴影 */
+        border-radius: 8px;
+        margin: 1.5rem 0.5rem; /* 增加四周间距，让内容“呼吸” */
+        padding: 0 1rem;
+    }
 }
 
 /* =========================================================
-   4. 滚动条美化
+   3. 滚动条终极隐身：像极客工具一样精致
 ========================================================= */
+/* 整体滚动条美化 */
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
 }
 ::-webkit-scrollbar-thumb {
-    background: rgba(128, 128, 128, 0.2);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
     background: var(--md-primary-fg-color);
 }
+
+/* 侧边栏滚动条平时隐藏，鼠标移上去才出现（防干扰） */
+.md-sidebar__inner {
+    scrollbar-width: none; /* Firefox */
+}
+.md-sidebar__inner::-webkit-scrollbar {
+    width: 0px; 
+}
+.md-sidebar__inner:hover::-webkit-scrollbar {
+    width: 4px;
+}
+.md-sidebar__inner:hover::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================================
+   4. 内容排版微调
+========================================================= */
+/* 让笔记提示框 (Admonition) 更柔和 */
+.md-typeset .admonition {
+    border-radius: 6px;
+    border-left-width: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* 调整标题间距 */
+.md-typeset h1 { margin-bottom: 1.5rem; font-weight: 700; }
+.md-typeset h2 { margin-top: 2rem; border-bottom: none; }
