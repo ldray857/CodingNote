@@ -1,70 +1,81 @@
 /* =========================================================
-   1. 侧边栏垂直分割线优化：增加质感与融合度
+   1. 全局布局美化：打造“悬浮卡片”质感
+========================================================= */
+:root {
+    --md-primary-fg-color: #3F51B5; /* 浙大蓝基准 */
+    --md-footer-bg-color: #f8f9fa;
+}
+
+/* 给整个背景一个淡淡的底色，让中间的内容区能“跳”出来 */
+body {
+    background-color: #f5f7f9;
+}
+
+/* 隐藏不必要的侧边栏边框 */
+.md-sidebar {
+    border: none !important;
+}
+
+/* =========================================================
+   2. 侧边栏“色块化”：用颜色取代线条
 ========================================================= */
 @media screen and (min-width: 76.25em) {
-  
-  /* 左侧导航栏与右侧目录栏 */
-  .md-sidebar--primary, 
-  .md-sidebar--secondary {
-    box-sizing: border-box;
-    /* 增加平滑过渡 */
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+    /* 左侧导航栏和右侧目录栏背景微调 */
+    .md-sidebar--primary, 
+    .md-sidebar--secondary {
+        background-color: #f8f9fa; /* 比背景稍浅，比内容区稍深 */
+        padding: 1rem 0;
+    }
 
-  /* 左侧栏右边框：使用带透明度的 Indigo 色，增加融合感 */
-  .md-sidebar--primary {
-    border-right: 1.5px solid rgba(63, 81, 181, 0.15); /* 淡淡的靛蓝色 */
-    padding-right: 1.2rem;
-  }
-
-  /* 右侧栏左边框：同理 */
-  .md-sidebar--secondary {
-    border-left: 1.5px solid rgba(63, 81, 181, 0.15);
-    padding-left: 1.2rem;
-  }
+    /* 给中间的内容主体加一个“纸张感”的阴影卡片效果 */
+    .md-content {
+        background-color: #ffffff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* 极轻的阴影 */
+        border-radius: 8px;
+        margin: 1.5rem 0.5rem; /* 增加四周间距，让内容“呼吸” */
+        padding: 0 1rem;
+    }
 }
 
 /* =========================================================
-   2. 极简主义滚动条设计：告别粗大的默认滚动条
-   让界面看起来像现代 IDE (如 VS Code)
+   3. 滚动条终极隐身：像极客工具一样精致
 ========================================================= */
-
-/* 针对 Webkit 浏览器 (Chrome, Edge, Safari) */
+/* 整体滚动条美化 */
 ::-webkit-scrollbar {
-  width: 6px; /* 极细宽度 */
-  height: 6px;
+    width: 5px;
 }
-
-/* 滚动条轨道 */
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* 滚动条滑块 (Thumb) */
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.1); /* 浅灰色，几乎不被察觉 */
-  border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--md-primary-fg-color);
 }
 
-/* 鼠标悬停在滑块上时变深 */
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(63, 81, 181, 0.4); /* 悬停时显示为淡淡的靛蓝 */
+/* 侧边栏滚动条平时隐藏，鼠标移上去才出现（防干扰） */
+.md-sidebar__inner {
+    scrollbar-width: none; /* Firefox */
+}
+.md-sidebar__inner::-webkit-scrollbar {
+    width: 0px; 
+}
+.md-sidebar__inner:hover::-webkit-scrollbar {
+    width: 4px;
+}
+.md-sidebar__inner:hover::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
 }
 
 /* =========================================================
-   3. 细节微调：增加呼吸感
+   4. 内容排版微调
 ========================================================= */
-.md-sidebar__inner {
-  padding-top: 1rem; /* 侧边栏顶部留白 */
-  scrollbar-width: thin; /* Firefox 兼容性 */
-  scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
+/* 让笔记提示框 (Admonition) 更柔和 */
+.md-typeset .admonition {
+    border-radius: 6px;
+    border-left-width: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* 深色模式适配 */
-[data-md-color-scheme="slate"] ::webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-}
-[data-md-color-scheme="slate"] .md-sidebar--primary,
-[data-md-color-scheme="slate"] .md-sidebar--secondary {
-  border-color: rgba(255, 255, 255, 0.1);
-}
+/* 调整标题间距 */
+.md-typeset h1 { margin-bottom: 1.5rem; font-weight: 700; }
+.md-typeset h2 { margin-top: 2rem; border-bottom: none; }
