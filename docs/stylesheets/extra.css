@@ -12,53 +12,59 @@
     --sidebar-bg-color: #1a1c20;
 }
 
-body { background-color: var(--page-bg-color); }
+body {
+    background-color: var(--page-bg-color);
+}
 
 /* =========================================================
-   2. 顶栏拉伸与间隙精准控制
+   2. 顶栏拉伸与间隙消除 (The "No-Gap" Header)
 ========================================================= */
 .md-header__inner {
-    height: 4.5rem; /* 保持拉伸后的高度 */
+    height: 4.5rem; 
     display: flex;
     align-items: center;
 }
 
+/* 核心修复：强制重置主容器的自动间距 */
 .md-main {
-    /* 1. 确保主容器起始位置紧贴顶栏下沿 */
+    /* 这里的 4.5rem 必须和上面 header 的高度完全对齐 */
     padding-top: 4.5rem !important; 
 }
 
 .md-main__inner {
-    /* 2. 【核心旋钮】：这里控制蓝色顶栏与下方内容的间隙 */
-    /* 0.8rem 是经过视觉测试最舒服的“小间隙” */
-    padding-top: 0.8rem !important; 
+    /* 彻底消除内容区顶部的原生 padding */
+    padding-top: 0 !important; 
+    margin-top: 0 !important;
 }
 
 /* =========================================================
-   3. 布局重塑：卡片感增强
+   3. 布局重塑：让卡片紧贴顶栏
 ========================================================= */
-.md-sidebar { border: none !important; }
+.md-sidebar {
+    border: none !important;
+}
 
 @media screen and (min-width: 76.25em) {
-    /* 侧边栏与内容区保持同样的顶部起点 */
     .md-sidebar--primary, 
     .md-sidebar--secondary {
         background-color: var(--sidebar-bg-color);
+        /* 同步缩小侧边栏的顶部间距 */
+        margin-top: 0.1rem; 
         padding: 0.5rem 0;
     }
 
     .md-content {
         background-color: var(--md-default-bg-color) !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
-        border-radius: 12px;
-        /* 这里的 margin 设为 0，因为间隙已经由父容器的 padding 控制了 */
-        margin: 0 0.8rem 1.5rem 0.8rem; 
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08); 
+        border-radius: 10px;
+        /* 【关键：0.1rem】这几乎让内容卡片与顶栏贴合，只留下一条若隐若现的缝隙 */
+        margin: 0.1rem 0.8rem 1.5rem 0.8rem; 
         padding: 0 1.2rem;
     }
 }
 
 /* =========================================================
-   4. 细节打磨
+   4. 细节美化
 ========================================================= */
 .md-logo img { height: 2.2rem; width: auto; }
 .md-search { padding-top: 0.2rem; }
