@@ -2,7 +2,7 @@
 # 1. 站点基础信息 (Global Settings)
 # =========================================================
 site_name: GIS & CS | CodingNote     # 网站标题，显示在浏览器标签和左上角
-site_description: 关于 GIS、CS 与 AI 的跨学科记录 # 网站描述，有利于 SEO
+site_description: 关于 GIS、CS 与 AI 的一些记录 # 网站描述，有利于 SEO
 site_author: Lucas                   # 你的大名
 site_url: https://ldray857.github.io/CodingNote/  # 部署后的线上地址
 edit_uri: edit/main/docs/            # 允许用户（或你自己）直接从网页点击“编辑此页”
@@ -58,7 +58,7 @@ nav:
   - 🛠️ 工具使用与配置:
       - 工具概览: tools/index.md
       - IDE 相关配置: tools/as_IDE/index.md
-      - CS 巨头与编译器: tools/as_cmp/index.md
+      - 头部公司与编译器: tools/as_cmp/index.md
   - 🖥️ 计算机使用感悟:
       - 经验总结: CS/index.md
   - ⚡ AI 工程:
