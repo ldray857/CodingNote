@@ -2,12 +2,12 @@
 site_name: GIS & CS | CodingNote
 site_description: 一份关于GIS、CS 与 AI 的记录
 site_author: Lucas
-site_url: https://ldray.github.io/CodingNote/
+site_url: https://ldra857.github.io/CodingNote/
 edit_uri: edit/main/docs/
 
 # 2. 仓库链接（右上角会显示 GitHub 图标）
-repo_name: about_cdoing
-repo_url: https://github.com/ldray/CodingNote
+repo_name: CodingNote
+repo_url: https://github.com/ldray857/CodingNote
 
 # 3. 主题配置
 theme:
@@ -39,6 +39,8 @@ theme:
     - search.suggest            # 搜索建议
     - search.highlight          # 搜索关键词高亮
     - content.code.copy         # 代码块一键复制
+extra_css:
+  - stylesheets/extra.css
 
 # 4. 导航栏配置（精准匹配你的目录结构）
 nav:
