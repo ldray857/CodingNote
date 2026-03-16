@@ -79,3 +79,27 @@ body {
 /* 调整标题间距 */
 .md-typeset h1 { margin-bottom: 1.5rem; font-weight: 700; }
 .md-typeset h2 { margin-top: 2rem; border-bottom: none; }
+/* 调整顶栏内部容器的高度 */
+.md-header__inner {
+    /* Material 主题默认约 3rem (48px)，这里我们加高到 4.5rem (约 72px) */
+    height: 4.5rem; 
+    display: flex;
+    align-items: center; /* 确保所有元素依然垂直居中 */
+}
+
+/* 适配搜索框的位置，防止它因为顶栏变高而偏离 */
+.md-search {
+    padding-top: 0.25rem;
+}
+
+/* 稍微放大 Logo 以适配更高的顶栏 */
+.md-logo img {
+    height: 2.2rem;
+    width: auto;
+}
+
+/* 修正下方内容区的偏移，防止顶栏挡住正文 */
+/* 通常 MkDocs 会自动处理，如果发现正文被挡住了，请微调此值 */
+.md-main {
+    padding-top: 4.5rem; 
+}
