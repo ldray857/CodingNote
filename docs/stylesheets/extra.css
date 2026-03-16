@@ -1,48 +1,61 @@
-/* =========================================================
-   1. 全局布局美化：打造“悬浮卡片”质感
-========================================================= */
+/* ---------------------------------------------------------
+   1. 布局重塑：针对 Y9000P 宽屏优化的悬浮卡片感
+   --------------------------------------------------------- */
 :root {
-    --md-primary-fg-color: #3F51B5; /* 浙大蓝基准 */
-    --md-footer-bg-color: #f8f9fa;
+    --md-primary-fg-color: #3F51B5;
 }
 
-/* 给整个背景一个淡淡的底色，让中间的内容区能“跳”出来 */
 body {
-    background-color: #f5f7f9;
+    background-color: #f5f7f9; /* 浅底色 */
 }
 
-/* 隐藏不必要的侧边栏边框 */
+/* 隐藏原生边框，改用投影区分空间 */
 .md-sidebar {
     border: none !important;
 }
 
-/* =========================================================
-   2. 侧边栏“色块化”：用颜色取代线条
-========================================================= */
 @media screen and (min-width: 76.25em) {
-    /* 左侧导航栏和右侧目录栏背景微调 */
-    .md-sidebar--primary, 
-    .md-sidebar--secondary {
-        background-color: #f8f9fa; /* 比背景稍浅，比内容区稍深 */
-        padding: 1rem 0;
-    }
-
-    /* 给中间的内容主体加一个“纸张感”的阴影卡片效果 */
+    /* 中间内容区变身为纸张卡片 */
     .md-content {
         background-color: #ffffff;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* 极轻的阴影 */
-        border-radius: 8px;
-        margin: 1.5rem 0.5rem; /* 增加四周间距，让内容“呼吸” */
-        padding: 0 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); /* 柔和阴影 */
+        border-radius: 10px;
+        margin: 1.5rem 1rem;
+        padding: 0 1.2rem;
+        overflow: hidden;
     }
 }
 
-/* =========================================================
-   3. 滚动条终极隐身：像极客工具一样精致
-========================================================= */
-/* 整体滚动条美化 */
+/* ---------------------------------------------------------
+   2. 公告栏：类名必须为 .md-announce (与 Material 钩子对齐)
+   --------------------------------------------------------- */
+.md-announce {
+    background-color: #003399; /* 浙大蓝 */
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.md-announce__inner {
+    padding: 0.5rem 0;
+    /* 流光溢彩动效 */
+    background: linear-gradient(90deg, #003399, #3f51b5, #003399);
+    background-size: 200% 100%;
+    animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ---------------------------------------------------------
+   3. 滚动条：极致简约，不挤占高分屏视野
+   --------------------------------------------------------- */
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
 }
 ::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.1);
@@ -50,55 +63,4 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
     background: var(--md-primary-fg-color);
-}
-
-/* 侧边栏滚动条平时隐藏，鼠标移上去才出现（防干扰） */
-.md-sidebar__inner {
-    scrollbar-width: none; /* Firefox */
-}
-.md-sidebar__inner::-webkit-scrollbar {
-    width: 0px; 
-}
-.md-sidebar__inner:hover::-webkit-scrollbar {
-    width: 4px;
-}
-.md-sidebar__inner:hover::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.1);
-}
-
-/* =========================================================
-   4. 内容排版微调
-========================================================= */
-/* 让笔记提示框 (Admonition) 更柔和 */
-.md-typeset .admonition {
-    border-radius: 6px;
-    border-left-width: 4px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-/* 调整标题间距 */
-.md-typeset h1 { margin-bottom: 1.5rem; font-weight: 700; }
-.md-typeset h2 { margin-top: 2rem; border-bottom: none; }
-
-/* 让顶部公告栏文字更有质感 - 修正类名为 .md-announce */
-.md-announce {
-    background-color: #003399; /* 浙大标准蓝 */
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 0.75rem; /* 名言可以小一点，显得精致 */
-    letter-spacing: 0.05em;
-}
-
-/* 内部容器的渐变效果 */
-.md-announce__inner {
-    padding: 0.4rem 0;
-    background: linear-gradient(90deg, #003399, #3f51b5, #003399);
-    background-size: 200% 100%;
-    animation: gradientMove 5s ease infinite;
-}
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
