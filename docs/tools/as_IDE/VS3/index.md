@@ -23,7 +23,7 @@ VS Code 是这一转型的代表作。微软意识到开发者不再只用 Windo
 * 🔌 **插件库齐全**：安装扩展即可完成各种轻量开发  
 * 🌍 **跨平台**：Windows、macOS 和 Linux 上体验一致  
 
-💡 对于普通 coding，常用 VS Code。关于我的使用经验，可以查看：[VScode入门](VScode/)
+💡 对于普通 coding，我们最常用的就是 VS Code。关于我的使用经验，可以查看：[VScode入门](VScode/)
 
 <br/>
 
