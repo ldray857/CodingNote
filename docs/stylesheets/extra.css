@@ -1,105 +1,107 @@
 /* =========================================================
-   1. 全局布局美化：打造“悬浮卡片”质感
+   1. 基础变量与深/浅模式适配
 ========================================================= */
 :root {
     --md-primary-fg-color: #3F51B5; /* 浙大蓝基准 */
-    --md-footer-bg-color: #f8f9fa;
+    /* 页面大背景色变量 */
+    --page-bg-color: #f5f7f9; 
+    --sidebar-bg-color: #f8f9fa;
 }
 
-/* 给整个背景一个淡淡的底色，让中间的内容区能“跳”出来 */
+/* 当切换到深色模式 (Slate) 时，自动重载背景变量 */
+[data-md-color-scheme="slate"] {
+    --page-bg-color: #121417; 
+    --sidebar-bg-color: #1a1c20;
+}
+
+/* 全局大背景应用变量 */
 body {
-    background-color: #f5f7f9;
+    background-color: var(--page-bg-color);
 }
 
-/* 隐藏不必要的侧边栏边框 */
+/* =========================================================
+   2. 顶栏拉伸 (Header Expansion)
+========================================================= */
+.md-header__inner {
+    /* 将高度提升至 4.5rem (约 72px)，增加呼吸感 */
+    height: 4.5rem; 
+    display: flex;
+    align-items: center;
+}
+
+/* 稍微放大 Logo 以适配高度 */
+.md-logo img {
+    height: 2.2rem;
+    width: auto;
+}
+
+/* 适配搜索框垂直位置 */
+.md-search {
+    padding-top: 0.2rem;
+}
+
+/* =========================================================
+   3. 布局重塑：悬浮卡片感 (Floating Card UI)
+========================================================= */
+/* 隐藏侧边栏原生分割线 */
 .md-sidebar {
     border: none !important;
 }
 
-/* =========================================================
-   2. 侧边栏“色块化”：用颜色取代线条
-========================================================= */
 @media screen and (min-width: 76.25em) {
-    /* 左侧导航栏和右侧目录栏背景微调 */
+    /* 侧边栏背景微调 */
     .md-sidebar--primary, 
     .md-sidebar--secondary {
-        background-color: #f8f9fa; /* 比背景稍浅，比内容区稍深 */
+        background-color: var(--sidebar-bg-color);
         padding: 1rem 0;
     }
 
-    /* 给中间的内容主体加一个“纸张感”的阴影卡片效果 */
+    /* 中间内容卡片核心配置 */
     .md-content {
-        background-color: #ffffff;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* 极轻的阴影 */
-        border-radius: 8px;
-        margin: 1.5rem 0.5rem; /* 增加四周间距，让内容“呼吸” */
-        padding: 0 1rem;
+        /* 【关键修复】使用主题默认变量，确保深色模式下背景自动变黑 */
+        background-color: var(--md-default-bg-color) !important;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08); 
+        border-radius: 12px;
+        
+        /* 【关键修复】第一个参数 0.4rem 压缩了顶栏与内容之间的间隙 */
+        margin: 0.4rem 0.8rem 1.5rem 0.8rem; 
+        padding: 0 1.2rem;
+        overflow: hidden;
     }
 }
 
 /* =========================================================
-   3. 滚动条终极隐身：像极客工具一样精致
+   4. 组件美化：提示框与滚动条
 ========================================================= */
-/* 整体滚动条美化 */
+/* 让笔记提示框 (Admonition) 边缘更圆润 */
+.md-typeset .admonition {
+    border-radius: 8px;
+    border-left-width: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* 滚动条极致简约化 */
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
 }
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(128, 128, 128, 0.2);
     border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
     background: var(--md-primary-fg-color);
 }
 
-/* 侧边栏滚动条平时隐藏，鼠标移上去才出现（防干扰） */
-.md-sidebar__inner {
-    scrollbar-width: none; /* Firefox */
-}
+/* 侧边栏滚动条平时隐藏，鼠标移上去才出现 */
 .md-sidebar__inner::-webkit-scrollbar {
     width: 0px; 
 }
 .md-sidebar__inner:hover::-webkit-scrollbar {
     width: 4px;
 }
-.md-sidebar__inner:hover::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.1);
-}
 
 /* =========================================================
-   4. 内容排版微调
+   5. 排版微调
 ========================================================= */
-/* 让笔记提示框 (Admonition) 更柔和 */
-.md-typeset .admonition {
-    border-radius: 6px;
-    border-left-width: 4px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-/* 调整标题间距 */
 .md-typeset h1 { margin-bottom: 1.5rem; font-weight: 700; }
 .md-typeset h2 { margin-top: 2rem; border-bottom: none; }
-/* 调整顶栏内部容器的高度 */
-.md-header__inner {
-    /* Material 主题默认约 3rem (48px)，这里我们加高到 4.5rem (约 72px) */
-    height: 4.5rem; 
-    display: flex;
-    align-items: center; /* 确保所有元素依然垂直居中 */
-}
-
-/* 适配搜索框的位置，防止它因为顶栏变高而偏离 */
-.md-search {
-    padding-top: 0.25rem;
-}
-
-/* 稍微放大 Logo 以适配更高的顶栏 */
-.md-logo img {
-    height: 2.2rem;
-    width: auto;
-}
-
-/* 修正下方内容区的偏移，防止顶栏挡住正文 */
-/* 通常 MkDocs 会自动处理，如果发现正文被挡住了，请微调此值 */
-.md-main {
-    padding-top: 4.5rem; 
-}
