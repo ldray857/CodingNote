@@ -47,29 +47,26 @@ nav:
   - 🛠️ 工具使用与配置:
       - 工具概览: tools/index.md
       - IDE 相关配置: tools/as_IDE/index.md
-      - CS 巨头/编译器介绍: tools/as_cmp/index.md
+      - CS 巨头与编译器: tools/as_cmp/index.md
       
   - 🖥️ 计算机使用感悟:
-      - 经验总结: CS/index.md # 假设感悟放在 CS 目录下
+      - 经验总结: CS/index.md
       
-  - 🤖 AI 工程:
-      - 实践心得: python/index.md # 如果没有独立 AI 文件夹，可先放 Python 下
-      - 自动化部署: python/index.md # 后续可新建 ai_eng 文件夹
+  - ⚡ AI 工程:
+      - 实践心得: AI/index.md # 建议后续新建 docs/AI_Eng/index.md
       
   - 💻 C & C++ 工程实践:
       - 核心指南: c_cpp/index.md
-      - 编译器与 IDE 联动: tools/as_IDE/VS3/index.md
+      - 环境联动: tools/as_IDE/VS3/index.md
       
   - 🐍 Python 工程实践:
-      - 环境管理与脚本: python/index.md
-      - 自动化实战: python/index.md
+      - 环境管理: python/index.md
       
   - 🌍 GIS 算法与实践:
-      - 空间分析与可视化: GIS/index.md
-      - ArcGIS & QGIS 指南: GIS/index.md
+      - 空间分析与自动化: GIS/index.md
       
-  - 🌐 Web 开发 (补充项目):
-      - 前端基础: web_dev/index.md
+  - 🌐 Web 开发工程:
+      - 开发概览: web_dev/index.md
 
 # 5. Markdown 增强插件（支持公式、警告框、复杂表格）
 markdown_extensions:
