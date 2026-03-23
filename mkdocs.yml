@@ -57,15 +57,15 @@ nav:
       - 工具概览: tools/index.md
       - IDE 配置 (VS Code/VS): 
           - 概览: tools/as_IDE/01_intro.md
-          - Visual Studio 实践: tools/as_IDE/02_VS_01.md
+          - Visual Studio家族介绍: tools/as_IDE/02_VS_01.md
       - GIS 工具集:
           - 环境概览: tools/as_GIS/01_intro.md
           - GeoServer 部署: tools/as_GIS/02_GeoServer.md
           - ArcGIS 全家桶: tools/as_GIS/03_ArcGIS_01.md
           - ArcGIS pro: tools/as_GIS/03_ArcGIS_02.md
-      - 计算机基础 (CS):
-          - 导论: tools/cs/01_introduction.md
-          - 文件管理: tools/cs/02_file_management.md
+      - 计算机工具集:
+          - 概览: tools/cs/01_introduction.md
+          - 文件管理工具: tools/cs/02_file_management.md
 
   - 🖥️ 计算机使用感悟:
       - 经验总结: CS/index.md
