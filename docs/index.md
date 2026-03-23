@@ -26,52 +26,47 @@
 
 
 
-## 二、 分类导航📂
+## 二、 分类导航 📂
 
-### 1️.工具使用与配置 🛠️
-- 编程相关工具配置  
-  - IDE 相关：[点击跳转](./tools/as_IDE/index.md)  
-  - GIS相关：[点击跳转](./tools/as_GIS/01_intro.md)  
-  - Python相关：[点击跳转](./tools/as_GIS/01_intro.md)  
-  - C/C++相关：[点击跳转](./tools/as_GIS/01_intro.md)  
-  - 文件管理相关：[点击跳转](./tools/as_GIS/01_intro.md)  
-- [查看我的常用tools](./tools/index.md)
-
-### 2️.计算机使用感悟 🖥️
-- 日常工作与开发经验总结  
-- 系统技巧、效率工具和问题解决方案  
+### 1. 工具使用与配置 🛠️
+* **编程环境**：[IDE 配置 (VS/VS Code)](./tools/as_IDE/01_intro.md) | [C/C++ 编译器](./c_cpp/index.md)
+* **专业工具**：[GIS 相关配置](./tools/as_GIS/01_intro.md) | [Python 环境管理](./python/index.md)
+* **基础素养**：[文件管理与计算机基础](./tools/cs/01_introduction.md)
+* 👉 [查看工具箱概览](./tools/index.md)
 
 
-### 3.AI工程 🤖
-- 人工智能工程实践心得  
-- 模型训练、推理与自动化部署  
-- Python + AI 库（TensorFlow, PyTorch 等）  
+### 2. 计算机使用感悟 🖥️
+* **经验总结**：日常开发踩坑、系统效率优化。
+* 👉 [进入感悟随笔](./CS/index.md)
 
 
-### 4️.C & C++ 工程实践 💻
-- 编译器与 IDE 配置（GCC, Clang, MSVC, VS Code, CLion）  
-- 代码规范与工程实践建议  
-- 内存管理、指针注意事项及常见陷阱  
-- [查看 C/C++ 工程实践](./c_cpp/index.md)
+### 3. AI 工程 ⚡
+* **实践心得**：模型训练、推理与自动化部署。
+* **研究方向**：AI + 物理驱动模型（SRTP 进展）。
+* 👉 [查看 AI 笔记](./AI/index.md)
 
-### 5️.Python 工程实践 🐍
-- Python 环境与版本管理  
-- 编程顺序、实用库和易错点  
-- 数据分析、自动化、GIS 脚本实战  
-- [查看 Python 工程实践](./python/index.md)
 
-### 6️.GIS 算法与实践 🌍
-- ArcGIS Pro 与 QGIS 使用指南  
-- Python + GIS 自动化脚本与空间分析  
-- 空间数据可视化与地图制作  
-- [查看 GIS 工程实践](./GIS/index.md)
+### 4. C & C++ 工程实践 💻
+* **核心指南**：指针、内存管理与工程化建议。
+* **环境联动**：[Visual Studio 实践技巧](./tools/as_IDE/02_VS_01.md)
+* 👉 [查看 C/C++ 专题](./c_cpp/index.md)
 
-### 7.Web开发工程 🌐
-- 前端基础：HTML / CSS / JavaScript  
-- 前端框架实践：React, Vue 等  
-- 后端基础与接口开发：Flask, Django  
-- 前后端联调与部署实践  
-- [查看 Web 开发工程](./web_dev/index.md)
+
+### 5. Python 工程实践 🐍
+* **实战应用**：自动化脚本、数据分析与 GIS 脚本编写。
+* 👉 [查看 Python 专题](./python/index.md)
+
+
+### 6. GIS 算法与实践 🌍
+* **专业进阶**：[ArcGIS 技巧](./tools/as_GIS/03_ArcGIS_01.md) | [GeoServer 部署](./tools/as_GIS/02_GeoServer.md)
+* **自动化**：Python + GIS 空间分析实战。
+* 👉 [查看 GIS 工程实践](./GIS/index.md)
+
+
+### 7. Web 开发工程 🌐
+* **前端基石**：[JavaScript 核心笔记](./web_dev/JavaScipt/01_简介.md)
+* **地图开发**：基于高德/Leaflet 的 Web GIS 可视化。
+* 👉 [查看 Web 开发工程](./web_dev/index.md)
   
 ---
 
