@@ -36,6 +36,7 @@ theme:
     - navigation.sections       # 侧边栏分组
     - navigation.expand         # 默认展开
     - navigation.top            # 回到顶部按钮
+    - navigation.footer         # 开启底部“上一页/下一页”导航栏
     - search.suggest            # 搜索建议
     - search.highlight          # 搜索关键词高亮
     - content.code.copy         # 代码块一键复制
@@ -49,11 +50,12 @@ nav:
       - 📝 关于作者: about.md
       - 🕒 快速导航:
           - 工具配置: tools/index.md
-          - 电脑配置: CS/index.md
-          - AI 工程: AI/index.md
+          - 电脑管理: CS/index.md
+          - AI 实践: AI/index.md
           - GIS 工程: GIS/index.md
-          - Python: python/index.md
-          - C/C++: c_cpp/index.md
+          - Python 开发: python/index.md
+          - C/C++学习: c_cpp/index.md
+          - 前端开发: web_dev/index.md
 
   - 🛠️ 工具使用与配置:
       - 工具箱概览: tools/index.md
@@ -69,41 +71,46 @@ nav:
           - 导论: tools/cs/01_introduction.md
           - 文件管理: tools/cs/02_file_management.md
 
-  - 🖥️ 计算机使用感悟:
-      - 经验总结: CS/index.md
+  - 🖥️ 计算机管理与存储:
+      - 1 经验总结: CS/index.md
+      - 1.1 存储策略导论: CS/cs_store/01_intro.md
+      - 1.2 电脑C盘清理: CS/cs_store/02_电脑C盘清理.md
       
-  - ⚡ AI 工程:
-      - 实践心得: AI/index.md
+  - ⚡ AI 工程实践:
+      - 1 实践心得: AI/index.md
       
-  - 💻 C & C++ 工程实践:
-      - 核心指南: c_cpp/index.md
+  - 💻 C & C++ 开发:
+      - 1 核心指南: c_cpp/index.md
       
-  - 🐍 Python 工程实践:
-      - python 概览: python/index.md
-      - 基础用法:
-          - 01 简介: python/basic/01_intro.md
-          - 02 基础语法: python/basic/02_basic.md
-          - 03 数据结构: python/basic/03_data.md
-          - 04 数值计算: python/basic/04_num.md
-          - 05 运算符: python/basic/05_cacul.md
-          - 06 布尔类型: python/basic/06_bool.md
-          - 内存机制 (RAM): python/basic/ram.md
+  - 🐍 Python 编程:
+      - 1 Python 概览: python/index.md
+      - 2 基础语法:
+          - 2.1 简介: python/basic/01_intro.md
+          - 2.2 基础入门 01: python/basic/02_basic_01.md
+          - 2.3 基础入门 02: python/basic/02_basic_02.md
+          - 2.4 数据结构: python/basic/03_data.md
+          - 2.5 数值计算: python/basic/04_num.md
+          - 2.6 运算符: python/basic/05_cacul.md
+          - 2.7 布尔类型: python/basic/06_bool.md
+          - 2.8 字符串处理: python/basic/07_string.md
+          - 2.9 表达式专题: python/basic/08_表达式.md
+          - 2.10 内存机制 (RAM): python/basic/ram.md
       
-  - 🌍 GIS 算法与实践:
-      - GIS概述: GIS/index.md
-      - GIS 开发实践: 
-          - 基础入门: GIS/GIS_DEV/01_intro.md
-          - 空间数据发布 (上): GIS/GIS_DEV/04_data_distribute_1.md
-          - 空间数据发布 (下): GIS/GIS_DEV/04_data_distribute_2.md
+  - 🌍 GIS 算法与开发:
+      - 1 GIS 概览: GIS/index.md
+      - 2 开发实践: 
+          - 2.1 基础入门: GIS/GIS_DEV/01_intro.md
+          - 2.2 空间数据发布 (上): GIS/GIS_DEV/04_data_distribute_1.md
+          - 2.3 空间数据发布 (下): GIS/GIS_DEV/04_data_distribute_2.md
       
   - 🌐 Web 开发工程:
-      - 开发概览: web_dev/index.md
-      - JavaScript 专题:
-          - 01 简介: web_dev/JavaScipt/01_简介.md
-          - 02 基础: web_dev/JavaScipt/02_基础.md
-          - 03 数据类型: web_dev/JavaScipt/03数据类型.md
-          - 04 作用域和事件: web_dev/JavaScipt/04_作用域和事件.md
-          - DOM 操作: web_dev/JavaScipt/DOM.md
+      - 1 开发概览: web_dev/index.md
+      - 2 JavaScript 专题:
+          - 2.1 简介: web_dev/JavaScipt/01_简介.md
+          - 2.2 基础: web_dev/JavaScipt/02_基础.md
+          - 2.3 数据类型: web_dev/JavaScipt/03数据类型.md
+          - 2.4 作用域和事件: web_dev/JavaScipt/04_作用域和事件.md
+          - 2.5 DOM 操作: web_dev/JavaScipt/DOM.md
 
 # 5. Markdown 增强插件（支持公式、警告框、复杂表格）
 markdown_extensions:
