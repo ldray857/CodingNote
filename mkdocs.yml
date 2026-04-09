@@ -73,7 +73,7 @@ nav:
 
   - 🖥️ 计算机管理与存储:
       - 1 经验总结: CS/index.md
-      - 1.1 存储策略导论: CS/cs_store/01_intro.md
+      - 1.1 存储策略: CS/cs_store/01_intro.md
       - 1.2 电脑C盘清理: CS/cs_store/02_电脑C盘清理.md
       
   - ⚡ AI 工程实践:
